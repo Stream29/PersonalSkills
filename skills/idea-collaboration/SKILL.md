@@ -18,7 +18,7 @@ Ask the user to enable IDEA MCP and set it up if tools are unavailable: `idea-mc
 
 ## Gradle Rules
 
-- Use `get_run_configurations` to find existing Gradle, test, application, or build configurations.
-- Use `execute_run_configuration` to run them.
+- Use `get_run_configurations` to find existing Gradle, test, application, or build configurations. Use `execute_run_configuration` to run them.
 - If it's expected to be a long run, DON'T use IDEA MCP tools, use shell commands instead.
+- - The gradle daemon from IDEA should be reused as much as possible. You should align the gradle JDK with IDEA for this.
 
