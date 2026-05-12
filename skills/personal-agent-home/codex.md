@@ -16,6 +16,8 @@ Target:
 ~/.codex/AGENTS.md
 ```
 
+Link target to source.
+
 ## Skills
 
 Source:
@@ -29,3 +31,5 @@ Target:
 ```text
 ~/.codex/skills/<skill-name>/
 ```
+
+Link target to source.

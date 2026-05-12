@@ -16,6 +16,8 @@ Target:
 ~/.config/opencode/AGENTS.md
 ```
 
+Link target to source.
+
 ## Skills
 
 Source:
@@ -29,3 +31,5 @@ Target:
 ```text
 ~/.config/opencode/skills/<skill-name>/
 ```
+
+Link target to source.

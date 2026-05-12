@@ -16,6 +16,8 @@ Target:
 ~/.claude/CLAUDE.md
 ```
 
+Link target to source.
+
 ## Skills
 
 Source:
@@ -29,3 +31,5 @@ Target:
 ```text
 ~/.claude/skills/<skill-name>/
 ```
+
+Link target to source.
