@@ -1,6 +1,6 @@
 ---
 name: idea-collaboration
-description: Use in JVM, Java, Kotlin, Gradle, Maven, Android, or IntelliJ IDEA based projects.
+description: "Use in JVM, Java, Kotlin, Gradle, Maven, Android, or IntelliJ IDEA based projects."
 ---
 
 # IDEA Collaboration
