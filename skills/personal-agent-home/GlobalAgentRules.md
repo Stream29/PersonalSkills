@@ -18,5 +18,6 @@
 
 ## Development Rules
 
+- For each code project, check whether the user uses an IDE, and which IDE if any.
 - After code changes, run test/type checking/code formatting if it helps.
 - Don't mock unless asked to do so.
