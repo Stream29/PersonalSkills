@@ -7,9 +7,10 @@ Use this before calling official JetBrains IntelliJ Platform MCP tools.
 ## Tool Choice
 
 - Prefer official IDE MCP tools for IDE-aware project operations.
-- Use script MCP only when the official MCP server does not expose the needed IntelliJ Platform API.
 - Use CLI commands when the user asks for shell integration or MCP is unavailable.
 - Use shell commands for long watch tasks, shell pipelines, or non-IDE work.
+- For script-like execution, choose an official MCP route: Inspection KTS for code inspections, run configurations for executable project code, terminal commands for shell scripts, or debugger evaluation for paused runtime expressions.
+- Do not assume arbitrary IDE-process script evaluation is available unless the exposed official MCP tools list contains a specific tool for it.
 
 ## Namespace And Project
 

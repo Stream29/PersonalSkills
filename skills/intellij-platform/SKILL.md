@@ -1,6 +1,6 @@
 ---
 name: intellij-platform
-description: "Use when working with JetBrains IntelliJ Platform IDEs, their MCP integrations, script MCP tools, command-line launchers, plugin installation, inspections, formatting, diff, merge, and IDE-aware project operations."
+description: "Use when working with JetBrains IntelliJ Platform IDEs, their official MCP integrations, script execution tools, command-line launchers, plugin installation, inspections, formatting, diff, merge, and IDE-aware project operations."
 ---
 
 # IntelliJ Platform
@@ -9,24 +9,18 @@ Use this skill for JetBrains IntelliJ Platform IDEs.
 
 ## Index
 
-- Structured IDE MCP:
+- Official IDE MCP:
   - `intellij-platform-mcp/install.md`: install, enable, and connect the official JetBrains MCP server.
   - `intellij-platform-mcp/common-rules.md`: project selection, path rules, tool choice, and safety.
   - `intellij-platform-mcp/project-analysis.md`: project model, dependencies, modules, symbols, and file problems.
   - `intellij-platform-mcp/files-editing.md`: read files, create files, replace text, format, open editors, and rename.
   - `intellij-platform-mcp/search-navigation.md`: find files, search text/regex/symbols, and inspect open files.
   - `intellij-platform-mcp/run-terminal.md`: run configurations, gutter run points, and terminal commands.
+  - `intellij-platform-mcp/script-execution.md`: official script-like execution through inspection.kts, terminal scripts, run configurations, and debugger expressions.
   - `intellij-platform-mcp/inspection-kts.md`: Inspection KTS API, examples, PSI trees, and validation.
   - `intellij-platform-mcp/debugging.md`: debugger sessions, breakpoints, tracepoints, and stepping.
   - `intellij-platform-mcp/database.md`: database connections, schemas, objects, queries, previews, and cancellation.
   - `intellij-platform-mcp/specialized-tools.md`: notebooks, VCS roots, DevKit, and monorepo status tools.
-- Script MCP:
-  - `intellij-script-mcp/install.md`: install and register IDE script MCP servers.
-  - `intellij-script-mcp/kotlin-eval.md`: `kotlin_eval` contract, state, returns, and project selection.
-  - `intellij-script-mcp/threading-and-write-safety.md`: read actions, smart mode, write commands, and EDT rules.
-  - `intellij-script-mcp/psi-vfs-editor.md`: PSI, VFS, editor, document, and navigation recipes.
-  - `intellij-script-mcp/async-jobs.md`: long IDE operations, polling, cancellation, and progress.
-  - `intellij-script-mcp/ide-recipes.md`: Search Everywhere, intentions, completion, Gradle, and IDE model recipes.
 - CLI:
   - `intellij-platform-cli/overview.md`: official CLI scope, command list, and option list.
   - `intellij-platform-cli/launchers.md`: Toolbox and standalone command-line launchers.
