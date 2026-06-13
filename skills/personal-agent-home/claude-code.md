@@ -7,7 +7,7 @@ Use this to configure Claude Code.
 Source:
 
 ```text
-GlobalAgentRules.md
+~/.agent/AGENTS.md
 ```
 
 Target:
@@ -23,13 +23,13 @@ Link target to source.
 Source:
 
 ```text
-skills/<skill-name>/
+~/.agent/skills/
 ```
 
 Target:
 
 ```text
-~/.claude/skills/<skill-name>/
+~/.claude/skills/
 ```
 
 Link target to source.

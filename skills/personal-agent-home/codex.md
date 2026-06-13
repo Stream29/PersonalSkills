@@ -7,7 +7,7 @@ Use this to configure Codex.
 Source:
 
 ```text
-GlobalAgentRules.md
+~/.agent/AGENTS.md
 ```
 
 Target:
@@ -23,13 +23,13 @@ Link target to source.
 Source:
 
 ```text
-skills/<skill-name>/
+~/.agent/skills/
 ```
 
 Target:
 
 ```text
-~/.codex/skills/<skill-name>/
+~/.codex/skills/
 ```
 
 Link target to source.
