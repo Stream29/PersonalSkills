@@ -1,6 +1,6 @@
 ---
 name: gradle
-description: "Use when working with Gradle builds, Gradle Wrapper, Gradle Daemon JVM/toolchain alignment, IntelliJ or Android Studio vs CLI Gradle JVM mismatches, dependency management, version catalogs, convention plugins, multi-project builds, performance, configuration cache, build cache, or troubleshooting Gradle commands."
+description: "Use when working with Gradle projects."
 ---
 
 # Gradle

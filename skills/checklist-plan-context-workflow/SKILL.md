@@ -1,6 +1,6 @@
 ---
 name: checklist-plan-context-workflow
-description: "Use when starting a new repository with the checklist/plan/shared-context workflow. The workflow is defined by templates/AGENTS.md and the files it routes to."
+description: "Use when starting a new code repository with the checklist/plan/shared-context workflow."
 ---
 
 # Checklist Plan Context Workflow

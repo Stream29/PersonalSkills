@@ -1,6 +1,6 @@
 ---
 name: intellij-platform
-description: "Use when working with JetBrains IntelliJ Platform IDEs, their official MCP integrations, script execution tools, command-line launchers, plugin installation, inspections, formatting, diff, merge, and IDE-aware project operations."
+description: "Use when working with JetBrains IntelliJ Platform IDEs."
 ---
 
 # IntelliJ Platform
