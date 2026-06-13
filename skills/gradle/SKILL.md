@@ -7,19 +7,14 @@ description: "Use when working with Gradle builds, Gradle Wrapper, Gradle Daemon
 
 Use this skill for Gradle build work.
 
-## Index
+## Best Practices
 
-- `runtime.md`: Gradle Daemon JVM, IDE-vs-CLI JDK mismatches, Java toolchains, and safe diagnostics.
-- `cli.md`: wrapper-first command usage, task discovery, focused execution, and common flags.
-- `structure.md`: settings files, multi-project builds, composite builds, and `build-logic`.
-- `dependencies.md`: version catalogs, platforms, constraints, locking, verification, and resolution debugging.
-- `build-logic.md`: convention plugins, `buildSrc`, included build logic, and plugin development.
-- `performance.md`: build scans, profiling, configuration cache, build cache, and CI performance checks.
-
-## Boundaries
-
-- Prefer the project wrapper: `./gradlew` on Unix-like systems and `gradlew.bat` on Windows.
-- Read `runtime.md` before running Gradle when an IDE is open, JDK selection is unclear, or daemon reuse matters.
-- Separate the JVM that runs Gradle from Java toolchains that compile or test project code.
-- Do not run `./gradlew --stop` unless the user asked to stop daemons or daemon state is the problem.
-- Do not guess JDK paths, Gradle JVM settings, wrapper versions, or IDE ownership.
+- Use version catalogs for shared dependency and plugin aliases.
+- Centralize repositories in `pluginManagement` and `dependencyResolutionManagement`.
+- Use the Foojay toolchain resolver convention when the build should provision JDKs automatically.
+- Prefer `buildSrc` for reusable logic and put repeated build behavior in convention plugins.
+- Use `dependencies`, `dependencyInsight`, `--refresh-dependencies`, and substitution checks for resolution diagnostics.
+- Enable the build cache and configuration cache when the project and plugins are compatible.
+- Reuse the available Gradle Daemon JVM when possible.
+- Always detect the running Gradle Daemon JVM and explicitly provide that JVM to `gradlew` to prevent Gradle Daemon JVM mismatches.
+- Treat Gradle commands as long-running processes and be patient.
