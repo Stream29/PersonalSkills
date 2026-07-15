@@ -5,7 +5,7 @@
 - Use `shared-context/` for reusable context that should not be mandatory-loaded.
 - Store research findings in `shared-context/findings/`.
 - Store referenced external repositories as Git submodules under `shared-context/`.
-- Keep `shared-context/` separate from `checklist/` and `plan/`.
+- Keep `shared-context/` separate from `checklist/` and `kanban/`.
 
 ## Findings
 

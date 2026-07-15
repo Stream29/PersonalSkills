@@ -2,14 +2,14 @@
 
 ## Before Changing Files
 
-- Check shared context, checklists and plans.
+- Check shared context, checklists, and relevant kanban task files.
 - Ask the user directly if a required decision is uncertain.
 - Identify the smallest relevant file set.
 - Read nearby code before editing to keep the style consistency.
 
 ## While Changing Files
 
-- Follow the plans.
+- Follow the active kanban task tree when one exists.
 - Keep implementation changes scoped to the user's request.
 - Follow existing project patterns once they exist.
 - Add abstractions only when they remove real complexity.
