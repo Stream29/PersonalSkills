@@ -9,11 +9,11 @@ Use this skill to configure coding agents.
 
 Use symbolic links for rules and skills. Do not copy them into agent home directories.
 
-Use `~/.agent` as the shared local agent home:
+Use `~/.agents` as the shared local agent home:
 
-- Link repository-managed rules and skills into `~/.agent`.
-- Put machine-local shared skills directly under `~/.agent/skills`.
-- Link each agent home's rules and whole `skills` directory back to `~/.agent`.
+- Link repository-managed rules and skills into `~/.agents`.
+- Put machine-local shared skills directly under `~/.agents/skills`.
+- Link each agent home's rules and whole `skills` directory back to `~/.agents`.
 
 Keep `SKILL.md` as the directory only. Load companion files on demand:
 

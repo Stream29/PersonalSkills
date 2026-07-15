@@ -7,7 +7,7 @@ Use this to configure Codex.
 Source:
 
 ```text
-~/.agent/AGENTS.md
+~/.agents/AGENTS.md
 ```
 
 Target:
@@ -23,7 +23,7 @@ Link target to source.
 Source:
 
 ```text
-~/.agent/skills/
+~/.agents/skills/
 ```
 
 Target:

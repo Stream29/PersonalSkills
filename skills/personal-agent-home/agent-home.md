@@ -13,7 +13,7 @@ assets/AGENTS.md
 Target:
 
 ```text
-~/.agent/AGENTS.md
+~/.agents/AGENTS.md
 ```
 
 Link target to source.
@@ -29,7 +29,7 @@ skills/<skill-name>/
 Target:
 
 ```text
-~/.agent/skills/<skill-name>/
+~/.agents/skills/<skill-name>/
 ```
 
 Link target to source.
@@ -39,7 +39,7 @@ Link target to source.
 Target:
 
 ```text
-~/.agent/skills/<skill-name>/
+~/.agents/skills/<skill-name>/
 ```
 
 Store machine-local shared skills here.
