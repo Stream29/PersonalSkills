@@ -1,6 +1,6 @@
 ## Tool Rules
 
-- Use `uv` when possible, avoid using `python` commands or `sys.path.insert`.
+- Use `uv` for Python.
 
 ## Colaboration Rules
 
