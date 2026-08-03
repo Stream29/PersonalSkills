@@ -2,7 +2,7 @@
 
 - <root task>
   - <subtask>
-  - [<subtask task>](../ongoing/YYYY-MM-DD-subtask.md)
+  - [<subtask task>](../<state>/YYYY-MM-DD-subtask.md)
 
 # Details
 
