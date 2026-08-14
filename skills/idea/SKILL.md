@@ -1,6 +1,6 @@
 ---
 name: idea
-description: "Use when working with IntelliJ IDEA, including its official MCP server, CLI, debugger, database tools, and IntelliJ Platform plugin development."
+description: "Use when working with IntelliJ IDEA, including its MCP server, CLI, debugger, database tools."
 ---
 
 # IntelliJ IDEA
@@ -9,14 +9,25 @@ Use this skill for IntelliJ IDEA.
 
 ## IDEA MCP
 
-Common categories and tools:
+Treat the IDE's Exposed Tools list as the source of truth. Availability depends on the IDE version, enabled plugins, and MCP settings.
 
-- Project and files: `list_directory_tree`, `read_file`, `get_all_open_file_paths`, `get_project_modules`.
-- Search and navigation: `search_file`, `search_text`, `search_symbol`, `get_symbol_info`, `analyze_calls`.
-- Edit and validation: `apply_patch`, `rename_refactoring`, `reformat_file`, `get_file_problems`, `lint_files`, `build_project`.
-- Run and debug: `get_run_configurations`, `execute_run_configuration`; discover `xdebug_*` tools when debugging.
-- VCS: `get_repositories`, `git_status`.
-- Specialized: discover databases, run kts scripts, and DevKit tools only when needed.
+Use the official toolset groups as follows:
+
+- Analysis tools: `analyze_calls`, `build_project`, `get_file_problems`, `get_project_dependencies`, `get_project_modules`, `lint_files`.
+- Code Insight tools: `get_symbol_info`.
+- Debugger tools: `xdebug_control_session`, `xdebug_evaluate_expression`, `xdebug_get_debugger_status`, `xdebug_get_frame_values`, `xdebug_get_stack`, `xdebug_get_threads`, `xdebug_get_value_by_path`, `xdebug_list_breakpoints`, `xdebug_remove_breakpoint`, `xdebug_run_to_line`, `xdebug_set_breakpoint`, `xdebug_set_variable`, `xdebug_start_debugger_session`.
+- Execution tools: `execute_run_configuration`, `get_run_configurations`.
+- Formatting tools: `reformat_file`.
+- Inspection Generator MCP Tools: `validate_inspection_kts`.
+- Inspection KTS MCP tools: `generate_inspection_kts_api`, `generate_inspection_kts_examples`, `generate_psi_tree`, `run_inspection_kts`.
+- Refactoring tools: `rename_refactoring`.
+- Search tools: `search_file`, `search_regex`, `search_symbol`, `search_text`.
+- Skill Search tools: `skill_search`.
+- Universal tools: `execute_tool`.
+
+- Prefer native agent tools for database access, file operations, patches, reads, VCS, and terminal commands. Do not use Database-specific, Patch, Read, Terminal, or VCS tools, or File tools other than `open_file_in_editor`; IDEA terminal execution also has timeout and output constraints.
+- Discover additional plugin-provided toolsets only when needed.
+- Use `execute_tool` for tools exposed only through router-only mode.
 
 ## IDEA CLI
 
