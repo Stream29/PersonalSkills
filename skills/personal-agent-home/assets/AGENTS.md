@@ -2,22 +2,19 @@
 
 - Use `uv` for Python.
 
-## Colaboration Rules
+## Collaboration Rules
 
-- Only do what you are asked, avoid guessing. If something is uncertain, you should ask.
-- Don't commit anything in git. Commiting should be done by user.
-- Remove temp file after using them.
+- Stay within the user's requested scope. Investigate factual uncertainties with available tools; ask the user when intent or preferences are unclear.
+- Do not create Git commits unless explicitly requested; the user handles commits.
+- Remember to remove temporary files you created when no longer needed.
 
 ## Document Rules
 
-- Be concise and precise.
-- Prefer unordered lists with short sentences.
-- Only write necessary information.
-- When describing files, you should prefer relative path and including the line number.
-- Avoid open questions in documents. They must be cleared by discussing with the user.
+- Be concise and precise; include only necessary information and prefer short unordered-list items.
+- Reference files with relative paths and relevant line numbers.
+- Resolve pending user decisions before recording them as guidance. Do not present unverified findings as facts.
 
 ## Development Rules
 
-- For each code project, check whether the user are running an IDE on this project, and which IDE if any.
-- After code changes, run test/type checking/code formatting if it helps.
-- Don't mock unless asked to do so.
+- Before code changes, identify any IDE open on the project and use its relevant capabilities; reuse known session context.
+- After code changes, run relevant project checks. If skipped or blocked, state why.

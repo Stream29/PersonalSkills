@@ -17,4 +17,3 @@ description: Use when working with the user's ~/ACodeSpace workspace on any devi
 ## Shared Environment Files
 
 - Store shared environment files as `~/ACodeSpace/<name>.env`.
-- Projects under `~/ACodeSpace` may use these files.

@@ -5,20 +5,7 @@ description: Use to edit the user's personal coding agent home configuration, es
 
 # Personal Agent Home
 
-Use this skill to configure coding agents.
-
-Use symbolic links for rules and skills. Do not copy them into agent home directories.
-
-Use `~/.agents` as the shared local agent home:
-
-- Link repository-managed rules and skills into `~/.agents`.
-- Put machine-local shared skills directly under `~/.agents/skills`.
-- Link each agent home's rules and whole `skills` directory back to `~/.agents`.
-
-Keep `SKILL.md` as the directory only. Load companion files on demand:
-
-- `assets/AGENTS.md`: canonical global agent rules.
-- `agent-home.md`: Shared local agent home layout.
-- `codex.md`: Global Codex configuration.
-- `opencode.md`: Global OpenCode configuration.
-- `claude-code.md`: Global Claude Code configuration.
+- Share rules and skills through symbolic links, not copies, using `~/.agents` as the shared local home.
+- Link repository-managed rules and skills into `~/.agents`; store machine-local shared skills directly under `~/.agents/skills`.
+- Link each agent's rules and whole skills directory back to the shared home; discover agent-specific paths when needed.
+- [assets/AGENTS.md](assets/AGENTS.md) is the canonical global rules source; read it when editing rules.

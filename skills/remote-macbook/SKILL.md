@@ -13,7 +13,4 @@ ssh stream@macbook
 
 ## Coding Workspace Layout
 
-- `~/ACodeSpace/push`: primary pushable repositories.
-- `~/ACodeSpace/local`: local-only repositories.
-- `~/ACodeSpace/fork`: forks of upstream projects.
-- `~/ACodeSpace/demo`: demo and experiment repositories.
+See the [acodespace skill](../acodespace/SKILL.md) for workspace layout.
