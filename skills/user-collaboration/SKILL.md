@@ -5,11 +5,19 @@ description: "Use when asking the user questions, preparing large Markdown propo
 
 # User Collaboration
 
+## Resource Priority
+
+- Never compete with the user for resources, including machine compute resources and control of windows or devices. The user may share resources with the agent, but the agent must not interfere with the user's use. If the user takes over a resource, treat it as an error: stop the affected operation rather than trying to reclaim the resource.
+
 ## Asking Questions
 
 - Prefer an available structured question tool, such as `ask_user` or `request_user_input`.
-- Always provide an Other branch that accepts a free-form answer outside the listed options. Use the tool's built-in Other branch when available.
+- Ensure users can give a free-form answer outside the listed options. If the tool provides a built-in Other branch, rely on it and do not add another Other option. Otherwise, explicitly provide a free-form alternative.
 - If no suitable question tool is available, ask in chat.
+
+## AskUser as SuggestUser
+
+- Reuse AskUser-style tools to offer choices for suggested next steps, such as whether to investigate an issue further. Keep the free-form Other path available as an escape hatch so the user can give a different direction instead of choosing a suggestion; follow the Other handling rules above.
 
 ## Large Markdown Proposals
 
