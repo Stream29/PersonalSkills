@@ -1,6 +1,6 @@
 ---
 name: acodespace
-description: Use when working with the user's ~/ACodeSpace workspace on any device.
+description: Use when working with the user's ~/ACodeSpace workspace on any device, for code projects and development envs.
 ---
 
 # ACodeSpace
@@ -14,6 +14,6 @@ description: Use when working with the user's ~/ACodeSpace workspace on any devi
 - `~/ACodeSpace/fork`: Forks of upstream projects.
 - `~/ACodeSpace/demo`: Demo and experiment repositories.
 
-## Shared Environment Files
+## Shared Development Envs
 
 - Store shared environment files as `~/ACodeSpace/<name>.env`.
