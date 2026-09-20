@@ -1,3 +1,12 @@
 [submodule "devices"]
 	path = devices
 	url = git@github.com:Stream29/PersonalDevices.git
+[submodule "harness/shared-context-workflow"]
+	path = harness/shared-context-workflow
+	url = https://github.com/Stream29/shared-context-workflow-skill.git
+[submodule "harness/checklist-workflow"]
+	path = harness/checklist-workflow
+	url = https://github.com/Stream29/checklist-workflow-skill.git
+[submodule "harness/kanban-workflow"]
+	path = harness/kanban-workflow
+	url = https://github.com/Stream29/kanban-workflow-skill.git
