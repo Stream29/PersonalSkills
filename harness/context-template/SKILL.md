@@ -26,6 +26,7 @@ description: Use when asked to initialize project context management.
   - [Resources](https://github.com/Stream29/shared-context-workflow-skill.git) → `.agents/skills/shared-context-workflow/`
   - [Checklists](https://github.com/Stream29/checklist-workflow-skill.git) → `.agents/skills/checklist-workflow/`
   - [Kanban](https://github.com/Stream29/kanban-workflow-skill.git) → `.agents/skills/kanban-workflow/`
+  - [Planning](https://github.com/Stream29/programmatic-planning-skill.git) → `.agents/skills/programmatic-planning/`
 
 ## Optional Build Wrapper
 
