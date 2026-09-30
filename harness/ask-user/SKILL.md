@@ -13,4 +13,4 @@ description: Use when asking questions or suggesting next steps.
 
 ## AskUser as SuggestUser
 
-- Also use structured question tools to offer choices for suggested next steps.
+- Always use structured question tools to offer choices for suggested next steps.

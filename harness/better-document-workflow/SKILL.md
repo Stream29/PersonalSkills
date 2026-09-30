@@ -1,6 +1,6 @@
 ---
 name: better-document-workflow
-description: Use when writing or revising documents or skills.
+description: Use when editing any natural language documents, including skills, code documents, and other written content.
 ---
 
 # Better Document Workflow
