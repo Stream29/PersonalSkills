@@ -1,6 +1,6 @@
 # AGENTS.md
 
-- Always load associated skills for current work.
+- Always load associated skills for current work. Kanban, planning, ask-user are always useful.
 - Remember to remove temporary files and release resources when no longer needed.
 - Stay within the user's requested scope.
 - Do not compete with or interfere with the user's use of shared compute resources, windows, or devices.
