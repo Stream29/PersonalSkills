@@ -1,6 +1,6 @@
 ---
 name: sway-use
-description: Use for Sway GUI control.
+description: Use Sway for isolated GUI control. It's not desktop control.
 ---
 
 # Sway Use
