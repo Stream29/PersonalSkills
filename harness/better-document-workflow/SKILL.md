@@ -1,9 +1,11 @@
 ---
 name: better-document-workflow
-description: Use when editing any natural language documents, including skills, code documents, and other written content.
+description: Always run this workflow when editing any natural language documents, including skills, code documents, and comments.
 ---
 
 # Better Document Workflow
+
+**This workflow is suggested to be run with a subagent.** If `agy` available, use `agy`.
 
 - Run these checks automatically before handing off new or revised documents, including skill instructions.
 - Fix issues within the requested scope, then recheck affected content and overall coherence.
