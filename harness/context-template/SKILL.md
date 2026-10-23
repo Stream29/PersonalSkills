@@ -15,6 +15,7 @@ description: Use when asked to initialize project context management.
 │   ├── discussion/        # Task records
 │   ├── planning/
 │   ├── executable/
+│   ├── active/
 │   └── done/
 └── resources/             # Reusable external resources
 ```
