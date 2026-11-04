@@ -5,23 +5,52 @@ description: Always run this workflow when editing any natural language document
 
 # Better Document Workflow
 
-**This workflow is suggested to be run with a subagent.** If `agy` available, use `agy`.
+```kotlin
+/**
+ * Suggested to run with a subagent (`agy` if available).
+ * Run automatically before handing off new or revised documents, including skill instructions.
+ */
+fun BetterDocumentWorkflow(
+    document: Document,
+    sources: Sources,
+    confirmedIntent: Intent,
+    requestedScope: Scope,
+): Document = withSubagentIfPossible(prefer = "agy") {
+    while (true) {
+        val before = document.snapshot()
 
-- Run these checks automatically before handing off new or revised documents, including skill instructions.
-- Fix issues within the requested scope, then recheck affected content and overall coherence.
+        ablationReview(document, requestedScope)
+        changeReview(document, sources, confirmedIntent, requestedScope)
+        wholeDocumentReview(document, requestedScope)
 
-## Ablation Review
+        if (document.snapshot() == before) break
+        `Recheck affected content and overall coherence`(document, requestedScope)
+    }
+    document
+}
 
-- Test removing or shortening each passage; keep the change only if useful information, necessary context, constraints, caveats, and reader clarity are preserved.
-- Do not add negative statements that contribute no actionable constraint or necessary clarification.
+fun ablationReview(document: Document, scope: Scope) {
+    for (passage in document.passagesIn(scope)) {
+        val shortened = `Try removing or shortening without adding non-actionable negative statements`(passage)
+        if (shortened.`preserves useful info, necessary context, constraints, caveats, and clarity`()) {
+            passage.replaceWith(shortened)
+        }
+    }
+}
 
-## Change Review
+fun changeReview(document: Document, sources: Sources, confirmedIntent: Intent, scope: Scope) {
+    for (change in document.`additions, deletions, and wording changes in`(scope)) {
+        if (change.hasFactualUncertainty) `Investigate against sources`(change, sources)
+        if (change.hasUnclearIntent) `Ask user to clarify intent`(change)
+        change.`verify against sources and confirmedIntent`(sources, confirmedIntent)
+        change.`preserve meaning and distinguish facts, assumptions, proposals, and confirmed decisions`()
+    }
+}
 
-- Check additions, deletions, and wording changes against relevant sources and the user's confirmed intent.
-- Preserve meaning and distinguish facts, assumptions, proposals, and confirmed decisions.
-- Investigate factual uncertainty; ask the user when intent is unclear.
+fun wholeDocumentReview(document: Document, scope: Scope) {
+    `Read the whole document`(document)
+    document.`check section responsibilities, ordering, terminology, and consistency`()
+    document.`merge redundant material, move misplaced content, and remove superseded statements in`(scope)
+}
+```
 
-## Whole-Document Review
-
-- Read the whole document; check section responsibilities, ordering, terminology, and consistency.
-- Merge redundant material, move misplaced content, and remove superseded statements.

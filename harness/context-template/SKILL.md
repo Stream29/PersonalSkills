@@ -5,32 +5,60 @@ description: Use when asked to initialize project context management.
 
 # Context Template
 
-## Reference Layout
+```kotlin
+enum class ContextComponent(val paths: List<String>, val skillRepo: String, val submodulePath: String) {
+    Checklists(
+        paths = listOf("checklist/"), // Project rules, SOPs, and confirmed decisions
+        skillRepo = "https://github.com/Stream29/checklist-workflow-skill.git",
+        submodulePath = ".agents/skills/checklist-workflow/",
+    ),
+    Kanban(
+        paths = listOf(
+            "kanban/Draft.md",      // User draft space
+            "kanban/discussion/",   // Task records
+            "kanban/planning/",
+            "kanban/executable/",
+            "kanban/active/",
+            "kanban/done/",
+        ),
+        skillRepo = "https://github.com/Stream29/kanban-workflow-skill.git",
+        submodulePath = ".agents/skills/kanban-workflow/",
+    ),
+    Planning(
+        paths = emptyList(),
+        skillRepo = "https://github.com/Stream29/programmatic-planning-skill.git",
+        submodulePath = ".agents/skills/programmatic-planning/",
+    ),
+    Resources(
+        paths = listOf("resources/"), // Reusable external resources
+        skillRepo = "https://github.com/Stream29/shared-context-workflow-skill.git",
+        submodulePath = ".agents/skills/shared-context-workflow/",
+    ),
+}
 
-```text
-<project>/
-├── checklist/             # Project rules, SOPs, and confirmed decisions
-├── kanban/
-│   ├── Draft.md           # User draft space
-│   ├── discussion/        # Task records
-│   ├── planning/
-│   ├── executable/
-│   ├── active/
-│   └── done/
-└── resources/             # Reusable external resources
+fun InitContextTemplate(
+    codeRepo: GitRepo,
+    selected: Set<ContextComponent>,
+    useBuildWrapper: Boolean = false,
+): GitRepo {
+    // Use codeRepo directly by default; create a wrapper only with explicit user confirmation
+    // when code must remain an independent Git repository or context cannot be managed inside it.
+    val root = if (useBuildWrapper) {
+        require(`Confirmed by user`())
+        // Place only the selected template parts and their history in Build<ProjectName>,
+        // and add the code repository as a direct child submodule.
+        val wrapper = `Create Git repository for template parts and their history`("Build${codeRepo.name}")
+        wrapper.addSubmodule(codeRepo, path = codeRepo.name)
+        wrapper
+    } else {
+        codeRepo
+    }
+
+    for (component in selected) {
+        `Create paths adapting to project layout and preserving existing content`(root, component.paths)
+        root.addSubmodule(url = component.skillRepo, path = component.submodulePath)
+    }
+    return root
+}
 ```
 
-## Apply Selected Parts
-
-- Create the selected components, adapting to the project's layout and preserving existing content.
-- Add each selected component's workflow repository as a Git submodule at the corresponding path:
-  - [Resources](https://github.com/Stream29/shared-context-workflow-skill.git) → `.agents/skills/shared-context-workflow/`
-  - [Checklists](https://github.com/Stream29/checklist-workflow-skill.git) → `.agents/skills/checklist-workflow/`
-  - [Kanban](https://github.com/Stream29/kanban-workflow-skill.git) → `.agents/skills/kanban-workflow/`
-  - [Planning](https://github.com/Stream29/programmatic-planning-skill.git) → `.agents/skills/programmatic-planning/`
-
-## Optional Build Wrapper
-
-- Use the code repository directly by default; create a wrapper only with explicit user confirmation.
-- A wrapper is useful when code must remain an independent Git repository or context cannot be managed inside it.
-- For code repository `<ProjectName>`, place only the selected template parts and their history in `Build<ProjectName>` and add the code repository as a direct child submodule.

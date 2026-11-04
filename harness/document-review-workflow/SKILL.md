@@ -5,22 +5,42 @@ description: Use when a document requires review by the user.
 
 # Document Review Workflow
 
-- Apply this workflow only when confirmed by the user.
+```kotlin
+/** Apply only when confirmed by the user. */
+fun DocumentReviewWorkflow(
+    document: Document,
+    reviewFocus: String,
+): MarkdownFile {
+    require(`Confirmed by user`())
+    var file = `Put document in editable Markdown file`(document)
 
-## Prepare for Review
+    if (file.isLarge) {
+        for (section in file.`substantive sections and subsections`()) {
+            section.appendFeedbackArea(
+                """
+                FIXME:
 
-- Put documents intended for user review in editable Markdown files.
-- For large documents, leave an editable feedback area after every substantive section and subsection:
+                """.trimIndent()
+            )
+        }
+    }
 
-```markdown
-FIXME:
+    do {
+        `Share relative path, relevant line numbers, and reviewFocus with user`(file, reviewFocus)
+        `Wait for user review in file`() // suspension
 
+        file = `Reread current document preserving user edits`(file)
+        for (fixme in file.`find all FIXME markers`()) {
+            if (fixme.feedback.isBlank()) {
+                fixme.`remove marker (blank feedback means no comments)`()
+            } else {
+                `Revise affected content preserving user edits`(file, fixme)
+            }
+        }
+        `Summarize changes and remaining review points`(file)
+    } while (file.`has remaining review points or FIXME markers`())
+
+    return file
+}
 ```
 
-- Share the document's relative path and relevant line numbers, and identify the review focus.
-- Blank feedback means no comments.
-
-## Apply Feedback
-
-- Reread the current document before revising it; preserve the user's edits.
-- Address every `FIXME` marker, revising the affected content and summarizing changes and remaining review points.
