@@ -5,15 +5,18 @@ description: Use when working with the user's ~/ACodeSpace workspace on any devi
 
 # ACodeSpace
 
-`~/ACodeSpace` is the user's consistent coding workspace root on every device.
+```kotlin
+/** Consistent coding workspace root on every device. */
+public data object ACodeSpace {
+    val root = "~/ACodeSpace"
 
-## Directory Layout
+    val push = "$root/push"   // Primary pushable repositories
+    val local = "$root/local" // Local-only repositories
+    val fork = "$root/fork"   // Forks of upstream projects
+    val demo = "$root/demo"   // Demo and experiment repositories
 
-- `~/ACodeSpace/push`: Primary pushable repositories.
-- `~/ACodeSpace/local`: Local-only repositories.
-- `~/ACodeSpace/fork`: Forks of upstream projects.
-- `~/ACodeSpace/demo`: Demo and experiment repositories.
+    // Includeing LLM API keys
+    fun sharedDevEnvFile(name: String) = "$root/$name.env"
+}
+```
 
-## Shared Development Envs
-
-- Store shared environment files as `~/ACodeSpace/<name>.env`.

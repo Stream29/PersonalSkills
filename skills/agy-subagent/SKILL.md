@@ -5,29 +5,29 @@ description: Use agy(Antigravity CLI) as an external subagent for bounded tasks.
 
 # agy Subagent
 
-## Discover and Select
+Discover CLI syntax with `agy --help` and `agy help <subcommand>` when needed.
 
-- Discover syntax with `agy --help`, and `agy help <subcommand>`.
-- Resolve the requested model with `agy models` and use its exact ID.
-
-## Run a Single Task
-
-- Use `--mode accept-edits` and `--dangerously-skip-permissions` for YOLO permissions.
-
-```bash
-agy --model gemini-3.8-flash-medium \
-  --mode accept-edits --dangerously-skip-permissions \
-  --output-format json \
-  -p 'Without tools or file access, review: def average(xs): return sum(xs) // len(xs). Require arithmetic mean and ValueError for empty input. Return defects, corrected code, and expected results for [1,2], [-1,0], and [].'
+```kotlin
+/**
+ * Run a bounded task with explicit acceptance criteria.
+ * Pass captured [conversationId] for follow-up turns.
+ */
+fun runAgySubagent(
+    prompt: String,
+    model: String = "gemini-3.8-flash-medium",
+    conversationId: String? = null,
+): JsonResult {
+    val modelId = `Resolve exact model ID from`(sh("agy models"), model)
+    val convFlag = if (conversationId != null) "--conversation \"$conversationId\" " else ""
+    return sh(
+        """
+        agy --model "$modelId" $convFlag\
+          --mode accept-edits --dangerously-skip-permissions \
+          --output-format json \
+          -p '$prompt'
+        """.trimIndent()
+    ).parseJson()
+}
 ```
 
-## Follow-up
 
-Pass the captured conversation ID and the next prompt.
-
-```bash
-agy --model "$model_id" --conversation "$conversation_id" \
-  --mode accept-edits --dangerously-skip-permissions \
-  --output-format json \
-  -p 'Bounded follow-up with explicit acceptance criteria'
-```

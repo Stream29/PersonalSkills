@@ -5,7 +5,24 @@ description: Use to edit the user's personal coding agent home configuration, es
 
 # Personal Agent Home
 
-- Share rules and skills through symbolic links, not copies, using `~/.agents` as the shared local home.
-- Link repository-managed rules and skills into `~/.agents`; store machine-local shared skills directly under `~/.agents/skills`.
-- Link each agent's rules and whole skills directory back to the shared home; discover agent-specific paths when needed.
-- [assets/AGENTS.md](assets/AGENTS.md) is the canonical global rules source; read it when editing rules.
+Canonical global rules source: [assets/AGENTS.md](assets/AGENTS.md) (read when editing rules).
+
+```kotlin
+/** Share rules and skills via symlinks through ~/.agents, never copies. */
+fun syncPersonalAgentHome(repoSkills: List<Path>, agents: List<CodingAgent>) {
+    val sharedHome = "~/.agents"
+    val sharedSkills = "$sharedHome/skills" // Store machine-local shared skills directly here
+
+    symlink(target = "assets/AGENTS.md", link = "$sharedHome/AGENTS.md")
+    for (skill in repoSkills) {
+        symlink(target = skill, link = "$sharedSkills/${skill.name}")
+    }
+
+    for (agent in agents) {
+        val paths = `Discover agent-specific config paths`(agent)
+        symlink(target = "$sharedHome/AGENTS.md", link = paths.rulesFile)
+        symlink(target = sharedSkills, link = paths.skillsDir)
+    }
+}
+```
+
