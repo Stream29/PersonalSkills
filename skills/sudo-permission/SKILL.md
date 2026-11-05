@@ -11,17 +11,16 @@ fun runSudo(command: String, device: Device = CurrentDevice) {
         device.`skill documents passwordless sudo`() -> sh("sudo $command")
         device.`skill documents weak sudo password`() ->
             `Run sudo with documented password`(command, device.password)
-        `User may be away from computer`() ->
-            sh("run0 $command") // Persistent GUI prompt; continues when user returns
-        else -> while (true) { // Default: sudo with fingerprint auth
-            try {
-                sh("sudo $command")
-                return
-            } catch (e: FingerprintAuthTimeout) {
-                sh("run0 $command")
-                return
-            } catch (e: FingerprintRecognitionFailed) {
-                `Ask user to retry fingerprint authentication`()
+        else -> try {
+            sh("run0 $command") // Preferred: persistent GUI prompt; continues when user returns
+        } catch (e: Run0Unavailable) {
+            while (true) { // Fallback: sudo with fingerprint auth
+                try {
+                    sh("sudo $command")
+                    return
+                } catch (e: FingerprintRecognitionFailed) {
+                    `Ask user to retry fingerprint authentication`()
+                }
             }
         }
     }
