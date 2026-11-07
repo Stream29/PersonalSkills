@@ -5,12 +5,18 @@ description: Use when asking questions or suggesting next steps.
 
 # Ask User
 
-## Asking Questions
+```kotlin
+/** Use for both clarifying questions and offering choices for suggested next steps. */
+fun askUser(questions: List<Question>): UserAnswer {
+    `Ensure the background, context, and any referenced proposals are already fully explained in the assistant message`()
 
-- Prefer an available structured question tool, such as `ask_user` or `request_user_input`.
-- Always allow free-form answers. Use the tool's built-in Other branch without duplicating it; provide a free-form alternative if none exists.
-- If no suitable question tool is available, ask in chat.
-
-## AskUser as SuggestUser
-
-- Always use structured question tools to offer choices for suggested next steps.
+    val tool = `Find available structured question tool (e.g. ask_question, request_user_input, ask_user)`()
+    return if (tool != null) {
+        // Rely on the tool's built-in Other branch for free-form input without duplicating it;
+        // add an explicit free-form option only when the tool has no built-in Other branch.
+        tool.invoke(questions)
+    } else {
+        `Ask in chat allowing free-form answers`(questions)
+    }
+}
+```
