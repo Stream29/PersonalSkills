@@ -17,6 +17,7 @@ fun syncPersonalAgentHome(repoSkills: List<Path>, agents: List<CodingAgent>) {
     for (skill in repoSkills) {
         symlink(target = skill, link = "$sharedSkills/${skill.name}")
     }
+    `Remove broken symlinks in`(sharedSkills)
 
     for (agent in agents) {
         val paths = `Discover agent-specific config paths`(agent)
@@ -25,4 +26,3 @@ fun syncPersonalAgentHome(repoSkills: List<Path>, agents: List<CodingAgent>) {
     }
 }
 ```
-
