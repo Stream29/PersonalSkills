@@ -7,8 +7,8 @@ description: Always run this workflow when editing any natural language document
 
 ```kotlin
 /**
- * Suggested to run with a subagent (`agy` if available).
- * Run automatically before handing off new or revised documents, including skill instructions.
+ * `@file:Import` and call this workflow in any task script that creates or edits documents or skills.
+ * Delegate to an isolated review subagent (`agy` or native subagent); run inline only when subagents are unavailable.
  */
 fun BetterDocumentWorkflow(
     document: Document,
