@@ -24,10 +24,10 @@ enum class ContextComponent(val paths: List<String>, val skillRepo: String, val 
         skillRepo = "https://github.com/Stream29/kanban-workflow-skill.git",
         submodulePath = ".agents/skills/kanban-workflow/",
     ),
-    Planning(
+    AgentScript(
         paths = emptyList(),
-        skillRepo = "https://github.com/Stream29/programmatic-planning-skill.git",
-        submodulePath = ".agents/skills/programmatic-planning/",
+        skillRepo = "https://github.com/Stream29/agent-script-skill.git",
+        submodulePath = ".agents/skills/agent-script/",
     ),
     Resources(
         paths = listOf("resources/"), // Reusable external resources
