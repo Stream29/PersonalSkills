@@ -10,6 +10,6 @@
 [submodule "harness/kanban-workflow"]
 	path = harness/kanban-workflow
 	url = https://github.com/Stream29/kanban-workflow-skill.git
-[submodule "harness/programmatic-planning"]
-	path = harness/programmatic-planning
-	url = https://github.com/Stream29/programmatic-planning-skill.git
+[submodule "harness/agent-script"]
+	path = harness/agent-script
+	url = https://github.com/Stream29/agent-script-skill.git
