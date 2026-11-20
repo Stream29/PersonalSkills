@@ -14,7 +14,7 @@ Discover CLI syntax with `agy --help` and `agy help <subcommand>` when needed.
  */
 fun runAgySubagent(
     prompt: String,
-    model: String = "gemini-3.8-flash-medium",
+    model: String = "gemini-4-neon-medium",
     conversationId: String? = null,
 ): JsonResult {
     val modelId = `Resolve exact model ID from`(sh("agy models"), model)
